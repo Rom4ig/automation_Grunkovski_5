@@ -36,16 +36,16 @@ function fromDir(startPath, filter) {
                 fs.lstatSync(a).birthtime.getTime();
         });
         console.log(`Oldest file is ${arr[0]}`);
-		if (count_files != 0){
-        console.log('Other files with difference < 10 second')
-        let time_base = fs.lstatSync(arr[0]).birthtimeMs;
-        for (let i = 1; i <= count_files; i++) {
-            let time = fs.lstatSync(arr[i]).birthtimeMs;
-            if (time_base - time < 10000) {
-                console.log(arr[i]);
+        if (count_files != 0) {
+            console.log('Other files with difference < 10 second')
+            let time_base = fs.lstatSync(arr[0]).birthtimeMs;
+            for (let i = 1; i <= count_files; i++) {
+                let time = fs.lstatSync(arr[i]).birthtimeMs;
+                if (time_base - time < 10000) {
+                    console.log(arr[i]);
+                }
             }
         }
-		}
     }
 };
 
