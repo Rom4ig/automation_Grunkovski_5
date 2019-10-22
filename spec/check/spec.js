@@ -29,12 +29,16 @@ afterAll(async function () {
 
 describe('Google', function () {
   it('FP', async function (done) { //check First Page
+    await driver.findElement(By.css('span.csb')).then(element =>
+      element.click());
     console.log('Check1');
     expect(await search("h3.LC20lb")).toBe(true);
     done();
   }, 10000);
 
-  it('Url1', async function (done) { //check First Page
+  it('Url1', async function (done) { //check First Page URL
+    await driver.findElement(By.css('span.csb')).then(element =>
+      element.click());
     console.log('Check1url');
     expect(await search("cite.iUh30")).toBe(true);
     done();
@@ -48,7 +52,9 @@ describe('Google', function () {
     done();
   }, 10000);
 
-  it('Url2', async function (done) { //check First Page
+  it('Url2', async function (done) { //check First Page URL
+    await driver.findElement(By.id('pnnext')).then(element =>
+      element.click());
     console.log('Check2url');
     expect(await search("cite.iUh30")).toBe(true);
     done();
