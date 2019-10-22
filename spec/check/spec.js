@@ -60,7 +60,7 @@ describe('Google', function () {
     done();
   }, 10000);
 
-  it('Results count greater than x', async function (done) { //Check count of results
+  it(`Count of results less than ${config.res}`, async function (done) { //Check count of results
     let element = await driver.wait(until.elementLocated(By.id('resultStats')));
     let found = await element.getText();
     let regex = /(([0-9]+\s*)+)/;
