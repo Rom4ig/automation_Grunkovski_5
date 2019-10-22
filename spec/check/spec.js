@@ -30,18 +30,29 @@ afterAll(async function () {
 describe('Google', function () {
   it('FP', async function (done) { //check First Page
     console.log('Check1');
-    expect(await search()).toBe(true);
+    expect(await search("h3.LC20lb")).toBe(true);
+    done();
+  }, 10000);
+
+  it('Url1', async function (done) { //check First Page
+    console.log('Check1url');
+    expect(await search("cite.iUh30")).toBe(true);
     done();
   }, 10000);
 
   it('SP', async function (done) { //check Second Page
-    await driver.wait(until.elementLocated(By.id('pnnext'))); //Go Second Page
     await driver.findElement(By.id('pnnext')).then(element =>
       element.click());
     console.log('Check2');
-    expect(await search()).toBe(true);
+    expect(await search("h3.LC20lb")).toBe(true);
     done();
-  }, 15000);
+  }, 10000);
+
+  it('Url2', async function (done) { //check First Page
+    console.log('Check2url');
+    expect(await search("cite.iUh30")).toBe(true);
+    done();
+  }, 10000);
 
   it('Results count greater than x', async function (done) { //Check count of results
     let element = await driver.wait(until.elementLocated(By.id('resultStats')));
@@ -55,11 +66,11 @@ describe('Google', function () {
   }, 10000);
 
 });
-async function search() { //Search for source text in headers
+async function search(css) { //Search for source text in headers
   let count_h3 = 0;
   let count_search = 0;
   let check = false;
-  let i = await driver.findElements(By.css("h3.LC20lb")); //Search all headers
+  let i = await driver.findElements(By.css(css)); //Search all headers
   for (let link of i) { //Check headers
     count_h3++;
     let text = await link.getText();
