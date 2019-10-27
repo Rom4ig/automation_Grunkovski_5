@@ -1,0 +1,7 @@
+# Logs
+logs
+*.log
+
+# Dependency directories
+node_modules/
+.idea/
