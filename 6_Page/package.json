@@ -1,0 +1,16 @@
+{
+  "name": "5_googlesearch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chromedriver": "^77.0.0",
+    "geckodriver": "^1.19.0",
+    "jasmine": "^3.5.0"
+  }
+}
