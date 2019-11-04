@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "jasmine",
-	"report": "node ./report.js"
+    "posttest": "allure generate allure-results --clean -o allure-report && allure open"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "allure": "0.0.0",
     "allure-commandline": "^2.13.0",
     "chromedriver": "^77.0.0",
     "fs": "0.0.1-security",
