@@ -1,5 +1,3 @@
-require('chromedriver');
-require('geckodriver');
 const Google = require('../../Pages/startPage');
 const config = require('../../Config/config');
 const des = 'Gmail';
