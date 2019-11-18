@@ -51,19 +51,19 @@ async function getMessages(auth, search) {
 }
 
 async function getCountOfMessages() {
-    logger.trace(`Return a count of messages: ${countOfMessages}`);
+    logger.trace(`Return getCountOfMessages(): ${countOfMessages}`);
     return countOfMessages;
 }
 
 function getSubject(message) {
     let subject = message.match(/Subject:.+/)[0].replace('Subject: ', '');
-    logger.trace(`Return a subject of message: ${subject}`);
+    logger.trace(`Return getSubject(message): ${subject}`);
     return subject;
 }
 
 function getDeadline(message) {
     let deadline = message.match(/[а-я]+,.[\d]+.[а-я]+,.[\d]{2}:[\d]{2}/)[0];
-    logger.trace(`Return a deadline of task: ${deadline}`);
+    logger.trace(`Return getDeadline(message): ${deadline}`);
     return deadline;
 }
 
