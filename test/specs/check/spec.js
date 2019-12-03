@@ -16,7 +16,7 @@ describe('Android', function () {
     await Page.click(config.loginButton);
     await Page.setCreeds(config.name, 11);
     await Page.setCreeds(config.pass, 13);
-    await Page.submit();
+    await Page.click(config.submit);
     const err = await Page.getError(config.error);
     expect(err).toContain(config.errors);
     logger.info('End describe');
