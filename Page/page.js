@@ -28,12 +28,6 @@ class Page {
         await creed.setValue(this.getRandom(length));
     }
 
-    async submit() {
-        logger.trace(`Submit`);
-        let element = await $(`android=new UiSelector().resourceId("submit")`);
-        await element.click();
-    }
-
     async getError(selector) {
         logger.trace('Error');
         let err = await $(selector);
