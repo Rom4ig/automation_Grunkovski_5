@@ -6,8 +6,7 @@ class Page {
     async click(selector, count) {
         let element = await $(selector);
         if (count === undefined) {
-            logger.trace('Click: ' + selector);
-            await element.click();
+            count = 1;
         }
         else {
             logger.trace(`Click: ${selector} ${count} times`);
