@@ -8,11 +8,10 @@ class Page {
         if (count === undefined) {
             count = 1;
         }
-        else {
             logger.trace(`Click: ${selector} ${count} times`);
             for (let i = 0; i < count; i++)
                 await element.click();
-        }
+
     }
 
     async back() {
