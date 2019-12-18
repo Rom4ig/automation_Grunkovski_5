@@ -13,12 +13,14 @@ class DownloadPage extends PageB {
         await Page.logger.trace('Clicked download');
 
     }
+
     async open(text) {
         await Page.logger.trace('Start open download page');
         await Page.chooseCategory("Поддержка", text);
         await Page.logger.trace('Opened');
 
     }
+
     async waitForFile(dir, file) {
         await Page.logger.trace('Start find');
         let find = false;
@@ -39,5 +41,6 @@ class DownloadPage extends PageB {
         return find;
 
     }
+    
 }
 module.exports = new DownloadPage();

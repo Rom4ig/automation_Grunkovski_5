@@ -4,6 +4,7 @@ const fs = require('fs');
 const regexCost = /[0-9]\n\$([0-9]{1,2}.[0-9]{1,2})/;
 const regexMax = /\$([0-9]{1,2}.[0-9]{1,2})/;
 const regexDiscount = /-([0-9]{1,2})%/;
+
 class StartPage extends Page {
     driver;
     logger;
@@ -51,6 +52,7 @@ class StartPage extends Page {
         this.logger.trace(`${maxDiscount} - max`);
         return maxDiscount;
     }
+
     async chooseGame(regex, max) {
         let res = await this.driver.findElements(By.className(this.price));
         for (let link of res) {
@@ -66,6 +68,7 @@ class StartPage extends Page {
             }
         }
     }
+
     async findPriceByDiscount(discount) {
         let res = await this.driver.findElements(By.className(this.price));
         for (let link of res) {
@@ -81,22 +84,28 @@ class StartPage extends Page {
             }
         }
     }
+
     async findMaxPrice() {
         let maxPrice = await this.find(regexMax);
         return maxPrice;
     }
+    
     async findDiscount() {
         let discount = await this.find(regexDiscount);
         return discount;
     }
+
     async chooseByDiscount(max) {
         await this.chooseGame(regexDiscount, max);
     }
+
     async chooseByPrice(max) {
         await this.chooseGame(regexMax, max);
     }
+
     async clear() {
         fs.writeFileSync('./logs/debug.log', "");
     }
+
 }
 module.exports = new StartPage();
