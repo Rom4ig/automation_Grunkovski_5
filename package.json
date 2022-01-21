@@ -13,7 +13,7 @@
     "fs": "0.0.1-security",
     "geckodriver": "^1.19.1",
     "jasmine": "^3.5.0",
-    "log4js": "^6.1.0",
+    "log4js": "^6.4.0",
     "path": "^0.12.7",
     "selenium-webdriver": "^4.0.0-alpha.5"
   }
